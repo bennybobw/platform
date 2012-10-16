@@ -22,7 +22,7 @@
 @section('content')
 <section id="groups">
 
-	<header class="head row-fluid">
+	<header class="head row">
 		<div class="span4">
 			<h1>{{ Lang::line('users::general.groups.update.title') }}</h1>
 			<p>{{ Lang::line('users::general.groups.update.description') }}</p>

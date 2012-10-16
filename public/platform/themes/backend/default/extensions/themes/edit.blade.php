@@ -23,17 +23,18 @@
 @section('content')
 <section id="themes">
 
-	<header class="row-fluid">
-		<div class="span6">
-			<h1>{{ $theme['name'] }}</h1>
-			<p>{{ $theme['description'] }} by {{ $theme['author'] }} v{{ $theme['version'] }}</p>
-		</div>
-		<nav class="actions span6 pull-right"></nav>
+	<header class="row">
+			<div class="span6">
+				<h1>{{ $theme['name'] }}</h1>
+				<p>{{ $theme['description'] }} by {{ $theme['author'] }} v{{ $theme['version'] }}</p>
+			</div>
+			<nav class="actions span6 pull-right">
+			</nav>
 	</header>
 
 	<hr>
 
-	<div class="theme row-fluid">
+	<div class="theme row">
 		<div class="span12">
 
 			@if (count($theme['options']))

@@ -1,118 +1,155 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>@yield('title')</title>
+        <meta name="description" content="@get.settings.site.tagline">
+		<meta name="author" content="@get.settings.site.title">
+        <meta name="viewport" content="width=device-width">
+        <meta name="base_url" content="{{ URL::to() }}">
+        <meta name="admin_url" content="{{ URL::to_admin() }}">
 
-	<!-- Basic Page Needs -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="description" content="@get.settings.site.tagline">
-	<meta name="author" content="Cartalyst LLC">
-	<meta name="base_url" content="{{ URL::to() }}">
-	<meta name="admin_url" content="{{ URL::to_admin() }}">
+		<!-- Queue Styles -->
+		{{ Theme::queue_asset('style', 'css/main.less') }}
 
-	<!-- Page Title -->
-	<title>
-		@yield('title')
-	</title>
+		<!-- Release Styles -->
+		{{ Theme::release_assets('styles') }}
 
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+		<!-- Styles -->
+		@yield('styles')
 
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Apply Style Options -->
+		<style>
+            @widget('platform.themes::options.css')
+        </style>
 
-	<!-- Queue Styles -->
-	{{ Theme::queue_asset('style', 'css/style.less') }}
- 	{{ Theme::asset('css/font-awesome.css') }}
-	<!-- Release Styles -->
-	{{ Theme::release_assets('styles') }}
+        <!-- Modernizr -->
+		{{ Theme::queue_asset('modernizr', 'js/vendor/modernizr/modernizr-2.6.1-respond-1.1.0.min.js') }}
 
-	<!-- Styles -->
-	@yield('styles')
+		<link rel="shortcut icon" href="{{ Theme::asset('img/favicon.png') }}">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ Theme::asset('img/apple-touch-icon-144x144-precomposed.png') }}">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ Theme::asset('img/apple-touch-icon-114x114-precomposed.png') }}">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ Theme::asset('img/apple-touch-icon-72x72-precomposed.png') }}">
+		<link rel="apple-touch-icon-precomposed" href="{{ Theme::asset('img/apple-touch-icon-precomposed.png') }}">
 
-	<!-- Apply Style Options -->
-	@widget('platform.themes::options.css')
+    </head>
+    <body>
+		<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+		<![endif]-->
+		<div id="base">
 
-	<link rel="shortcut icon" href="{{ Theme::asset('img/favicon.png') }}">
-	<link rel="apple-touch-icon-precomposed" href="{{ Theme::asset('img/apple-touch-icon-precomposed.png') }}">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ Theme::asset('img/apple-touch-icon-72x72-precomposed.png') }}">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ Theme::asset('img/apple-touch-icon-114x114-precomposed.png') }}">
-
-</head>
-<body>
-
-	<!-- main menu -->
-	<div class="main-menu">
-		@widget('platform.menus::menus.nav', 'main', 1, 'nav nav-pills')
-	</div>
-
-	<div id="base" class="grid">
-
-
-
-		<header class="rows">
-			<div class="brand">
-				<a href="{{ URL::to_admin() }}">
-					<img src="{{ Theme::asset('img/brand.png') }}" title="Cartalyst">
+			<header class="desktop-navigation clearfix visible-desktop">
+				<a class="brand" href="{{ URL::to_admin() }}">
+					<img src="{{ Theme::asset('img/brand.png') }}" title="@get.settings.site.title">
 				</a>
-			</div>
-			<div class="about">
-				<h1>@get.settings.site.title</h1>
-				<p class="lead">@get.settings.site.tagline</p>
-			</div>
-
-			<div class="wrapper">
-				<div class="navigation">
-					@widget('platform.menus::menus.nav', 'admin', 1, 'nav nav-tabs', ADMIN)
+				<div class="about">
+					<h1>@get.settings.site.title</h1>
+					<p>@get.settings.site.tagline</p>
 				</div>
-			</div>
-		</header>
+				<nav class="profile-navigation">
+					<ul class="nav nav-pills pull-right">
+						<li>
+							<a href="{{ URL::to() }}" target="_self">
+								<i class="icon-home"></i> <span>Home</span>
+							</a>
+						</li>
+						<li>
+							<a href="{{ URL::to('/logout') }}" target="_self">
+								<i class="icon-signout"></i> <span>Logout</span>
+							</a>
+						</li>
+						<li class="divider-vertical"></li>
+					</ul>
+				</nav>
+			</header>
 
-		<div id="page" class="rows expand">
-			<div id="inside" class="grid wrapper">
-				<div class="navigation column left-nav">
-					@widget('platform.menus::menus.nav', 1, 2, 'nav nav-stacked nav-pills', ADMIN)
-				</div>
-
-				<div class="content column expand">
+			<header class="mobile-navigation navbar hidden-desktop">
+				<div class="navbar-inner">
 					<div class="container-fluid">
-						@widget('platform.application::messages.all')
-						@yield('content')
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="{{ URL::to_admin() }}">
+							@get.settings.site.title
+						</a>
+						<ul class="nav pull-right">
+							<li>
+								<a href="{{ URL::to() }}" target="_self">
+									<i class="icon-home"></i> <span>Home</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('/logout') }}" target="_self">
+									<i class="icon-signout"></i> <span>Logout</span>
+								</a>
+							</li>
+							<li class="divider-vertical"></li>
+						</ul>
+						<div class="nav-collapse collapse">
+							@widget('platform.menus::menus.nav', 'admin', 1, 'nav nav-stacked nav-pills', ADMIN)
+						</div><!--/.nav-collapse -->
+					</div>
+				</div>
+			</header>
+
+			<nav class="primary-navigation visible-desktop">
+				@widget('platform.menus::menus.nav', 'admin', 1, 'nav nav-tabs', ADMIN)
+			</nav>
+
+			<nav class="secondary-navigation hidden-desktop">
+					@widget('platform.menus::menus.nav', 1, 1, 'nav nav-stacked nav-pills', ADMIN)
+			</nav>
+
+			<div class="page container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<nav class="secondary-navigation visible-desktop">
+							@widget('platform.menus::menus.nav', 1, 1, 'nav nav-pills', ADMIN)
+							<hr>
+						</nav>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="content">
+							@widget('platform.application::messages.all')
+							@yield('content')
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="footer" class="rows">
-			<div class="wrapper clearfix">
-				<div class="brand">
-					<a href="{{ URL::to_admin() }}">
-						<img src="{{ Theme::asset('img/brand-footer.png') }}" title="Cartalyst">
-					</a>
-				</div>
-				<div class="legal">
-					<p class="copyright">Created, developed, and designed by <a href="http://twitter.com/#!/Cartalyst">@Cartalyst</a></p>
-					<p class="licence">The BSD 3-Clause License - Copyright (c) 2011-2012, Cartalyst LLC</p>
-				</div>
-			</div>
-		</div>
-	</div>
+			<div id="push"></div>
 
-<!-- Queue Scripts -->
-{{ Theme::queue_asset('jquery', 'js/jquery-1.8.1.min.js') }}
-{{ Theme::queue_asset('admin', 'js/admin.js') }}
-{{ Theme::queue_asset('url', 'js/url.js') }}
+		</div><!--/.base-->
 
-<!-- Release Scripts -->
-{{ Theme::release_assets('scripts') }}
+		<footer>
+			@include('templates.partials.footer')
+		</footer>
 
-<!-- Scripts -->
-@yield('scripts')
 
-</body>
+
+	<!-- Queue Global Scripts -->
+	{{ Theme::queue_asset('jquery', 'js/vendor/jquery/jquery-1.8.2.min.js') }}
+	{{ Theme::queue_asset('platform-url', 'js/vendor/platform/url.js', 'jquery') }}
+	{{ Theme::queue_asset('bootstrap-transition', 'js/bootstrap/transition.js', 'jquery') }}
+	{{ Theme::queue_asset('bootstrap-collapse', 'js/bootstrap/collapse.js', 'jquery') }}
+
+	<!-- Queue App Specific Scripts -->
+	{{ Theme::queue_asset('plugins', 'js/plugins.js') }}
+	{{ Theme::queue_asset('main', 'js/main.js') }}
+
+	<!-- Release Scripts -->
+	{{ Theme::release_assets('scripts') }}
+
+	<!-- Apply View Specific Scripts -->
+	@yield('scripts')
+
+    </body>
 </html>

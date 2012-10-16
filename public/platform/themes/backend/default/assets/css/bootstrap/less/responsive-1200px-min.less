@@ -3,26 +3,73 @@
 // --------------------------------------------------
 
 
-@media (min-width: 1200px) {
+@media (min-width: 978px) {
 
-  // Fixed grid
-  #grid > .core(@gridColumnWidth1200, @gridGutterWidth1200);
+	// Fixed grid
+	#grid > .core(@gridColumnWidth1200, @gridGutterWidth1200);
 
-  // Fluid grid
-  #grid > .fluid(@fluidGridColumnWidth1200, @fluidGridGutterWidth1200);
+	// Fluid grid
+	#grid > .fluid(@fluidGridColumnWidth1200, @fluidGridGutterWidth1200);
 
-  // Input grid
-  #grid > .input(@gridColumnWidth1200, @gridGutterWidth1200);
+	// Input grid
+	#grid > .input(@gridColumnWidth1200, @gridGutterWidth1200);
 
-  // Thumbnails
-  .thumbnails {
-    margin-left: -@gridGutterWidth1200;
-  }
-  .thumbnails > li {
-    margin-left: @gridGutterWidth1200;
-  }
-  .row-fluid .thumbnails {
-    margin-left: 0;
-  }
+	// Thumbnails
+	.thumbnails {
+	margin-left: -@gridGutterWidth1200;
+	}
+	.thumbnails > li {
+	margin-left: @gridGutterWidth1200;
+	}
+	.row-fluid .thumbnails {
+	margin-left: 0;
+	}
+
+	// Platform Default Theme
+
+	#base {
+		padding:0 20px;
+	}
+
+	#base > header {
+		padding:10px;
+	}
+
+	#base > header .brand,
+	#base > header .about {
+		float:left;
+	}
+
+	#base > header .about {
+		margin-left:20px;
+	}
+
+	#base > header h1 {
+		margin-bottom:0;
+	}
+
+	#base .primary-navigation > ul {
+		margin-left:0;
+		margin-bottom:-1px;
+	}
+
+	#base .secondary-navigation > ul {
+		margin-left:0;
+		padding:20px 0 0;
+	}
+
+	#base .quaternary-navigation  > ul {
+		margin-bottom:-1px;
+
+	}
+
+
+	#base .page .content {
+		text-align: left;
+		padding:0;
+	}
+
+
+
 
 }

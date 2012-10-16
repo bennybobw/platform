@@ -21,7 +21,7 @@
 @section('content')
 <section id="users">
 
-	<header class="head row-fluid">
+	<header class="head row">
 		<div class="span4">
 			<h1>{{ Lang::line('users::general.groups.create.title') }}</h1>
 			<p>{{ Lang::line('users::general.groups.create.description') }}</p>
@@ -30,7 +30,7 @@
 
 	<hr>
 
-	<div class="row-fluid">
+	<div class="row">
 		<div class="span12">
 			@widget('platform.users::admin.group.form.create')
 		</div>
