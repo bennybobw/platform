@@ -23,7 +23,7 @@
  * --------------------------------------------------------------------------
  * Extensions > Admin Class
  * --------------------------------------------------------------------------
- * 
+ *
  * Extensions management.
  *
  * @package    Platform
@@ -367,7 +367,7 @@ class Extensions_Admin_Extensions_Controller extends Admin_Controller
 
             // Set the success message.
             //
-            Pltform::messages()->success(Lang::line('extensions.update.success', array('extension' => $slug))->get());
+            Platform::messages()->success(Lang::line('extensions.update.success', array('extension' => $slug))->get());
         }
         catch (APIClientException $e)
         {
