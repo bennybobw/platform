@@ -105,7 +105,7 @@ class Settings_API_Settings_Controller extends API_Controller
             //
             foreach ($result as $setting)
             {
-                $settings[ $setting['type'] ][ $setting['name'] ] = $setting;
+                $settings[ $setting['extension'] ][ $setting['type'] ][ $setting['name'] ] = $setting;
             }
 
             // Save the settings in our result variable.

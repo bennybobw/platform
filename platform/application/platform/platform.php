@@ -123,7 +123,7 @@ class Platform
         //
         else
         {
-            // Platform was not initialized, but is now.
+            // Platform is initialized.
             //
             static::$initialized = true;
 
@@ -131,9 +131,13 @@ class Platform
             //
             static::register_blade_extensions();
 
-            // Start the modules.
+            // Start the extensions.
             //
             static::extensions_manager()->start_extensions();
+
+            // Grab and store all the settings.
+            //
+            static::$settings = API::get('settings', array('organize' => true));
         }
     }
 
@@ -242,7 +246,7 @@ class Platform
      * Function: start_installer()
      * --------------------------------------------------------------------------
      *
-     * Starts the installer module.
+     * Starts the installer bundle.
      *
      * @access   public
      * @param    boolean
@@ -268,6 +272,31 @@ class Platform
             // Redirect to the installer page.
             //
             Redirect::to('installer')->send();
+            exit;
+        }
+    }
+
+
+    public static function start_updater()
+    {
+        // Register the updater bundle.
+        //
+        Bundle::register('updater', array(
+            'location' => 'path: ' . path('updater'),
+            'handles'  => 'updater'
+        ));
+
+        // Start the updater bundle.
+        //
+        Bundle::start('updater');
+
+        // If we are not in the updater.
+        //
+        if ( ! URI::is('updater|updater/*'))
+        {
+            // Redirectr to the updater page.
+            //
+            Redirect::to('updater')->send();
             exit;
         }
     }
