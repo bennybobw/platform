@@ -13,7 +13,7 @@
 @endsection
 
 <!-- Queue Scripts -->
-{{ Theme::queue_asset('jquery-helpers', 'js/vendor/jquery/helpers.js', 'jquery') }}
+{{ Theme::queue_asset('jquery-helpers', 'js/vendor/platform/helpers.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-tab', 'js/bootstrap/tab.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-toggle', 'js/bootstrap/toggle.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-button', 'js/bootstrap/button.js', 'jquery') }}
@@ -21,7 +21,7 @@
 {{ Theme::queue_asset('jquery-nestedsortable', 'js/vendor/platform/nestedsortable-1.3.5.js', 'jquery') }}
 {{ Theme::queue_asset('tempo', 'js/vendor/tempojs/tempo-1.8.min.js') }}
 {{ Theme::queue_asset('jquery-nestysortable', 'js/vendor/platform/nestysortable-1.0.js', 'jquery') }}
-{{ Theme::queue_asset('menussortable', 'menus::js/vendor/platform/menussortable-1.0.js', 'jquery') }}
+{{ Theme::queue_asset('menussortable', 'menus::js/menussortable-1.0.js', 'jquery') }}
 {{ Theme::queue_asset('validate', 'js/vendor/platform/validate.js', 'jquery') }}
 
 <!-- Scripts -->
@@ -30,13 +30,7 @@
 
 	$(document).ready(function() {
 
-		// Toggle Checkboxes.
-		$('.toggle').toggle({
-			style: {
-				enabled  : 'success',
-				disabled : 'danger'
-			}
-		});
+
 
 		// Menu sortable plugin
 		$('#menu').menuSortable({

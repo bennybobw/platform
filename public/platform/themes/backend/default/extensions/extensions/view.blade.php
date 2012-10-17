@@ -14,7 +14,7 @@
         <nav class="actions span6 pull-right"></nav>
     </header>
 
-    <hr />
+    <hr>
 
     <h5>{{ Lang::line('extensions::general.heading.view.information')->get() }}</h5>
     <table class="table table-bordered">
@@ -40,7 +40,7 @@
 
     {{ Form::open() }}
         {{ Form::token() }}
-       
+
         @if ( $dependencies = Platform::extensions_manager()->has_dependencies(array_get($extension, 'info.slug')) )
         <h5>{{ Lang::line('extensions::general.heading.view.dependencies')->get() }}</h5>
         <table class="table table-bordered">
