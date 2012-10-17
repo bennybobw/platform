@@ -29,10 +29,10 @@ use Platform\Menus\Menu;
 
 /**
  * --------------------------------------------------------------------------
- * Install Class v1.0.1
+ * Install Class v1.1.0
  * --------------------------------------------------------------------------
  *
- * Adds a class to menu items.
+ * Filesystem bundle settings.
  *
  * @package    Platform
  * @author     Cartalyst LLC
@@ -60,7 +60,7 @@ class Settings_v1_1_0
          * --------------------------------------------------------------------------
          */
         $settings = array(
-            // Frontend default theme.
+            // Frontend fallback message.
             //
             array(
                 'extension' => 'settings',
@@ -69,7 +69,7 @@ class Settings_v1_1_0
                 'value'     => 'off',
             ),
 
-            // Backend default theme.
+            // Frontend failed message.
             //
             array(
                 'extension' => 'settings',
@@ -77,7 +77,8 @@ class Settings_v1_1_0
                 'name'      => 'frontend_failed_message',
                 'value'     => 'off',
             ),
-            // Frontend default theme.
+
+            // Backend fallback message.
             //
             array(
                 'extension' => 'settings',
@@ -86,7 +87,7 @@ class Settings_v1_1_0
                 'value'     => 'warning',
             ),
 
-            // Backend default theme.
+            // Backend failed message.
             //
             array(
                 'extension' => 'settings',
@@ -114,33 +115,11 @@ class Settings_v1_1_0
      */
     public function down()
     {
-    	/*
+        /*
          * --------------------------------------------------------------------------
          * # 1) Delete Configuration settings.
          * --------------------------------------------------------------------------
          */
-    	DB::table('settings')
-    		->where('extension', '=', 'settings')
-    		->where('type', '=', 'filesystem')
-    		->where('name', '=', 'frontend_fallback_message')
-    		->delete();
-
-    	DB::table('settings')
-    		->where('extension', '=', 'settings')
-    		->where('type', '=', 'filesystem')
-    		->where('name', '=', 'frontend_failed_message')
-    		->delete();
-
-    	DB::table('settings')
-    		->where('extension', '=', 'settings')
-    		->where('type', '=', 'filesystem')
-    		->where('name', '=', 'backend_fallback_message')
-    		->delete();
-
-    	DB::table('settings')
-    		->where('extension', '=', 'settings')
-    		->where('type', '=', 'filesystem')
-    		->where('name', '=', 'backend_failed_message')
-    		->delete();
+        DB::table('settings')->where('extension', '=', 'settings')->where('type', '=', 'filesystem')->delete();
     }
 }

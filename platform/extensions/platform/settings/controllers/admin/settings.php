@@ -102,23 +102,25 @@ class Settings_Admin_Settings_Controller extends Admin_Controller
 
         // Get all the settings from the database.
         //
-        foreach (API::get('settings', array('organize' => true)) as $setting)
+        foreach (API::get('settings', array('organize' => true)) as $extension => $extension_settings)
         {
-            // Populate the extension name of each setting.
+            // Make sure this extension settings widget exists.
             //
-            foreach ($setting as $data)
+            if( ! class_exists('Platform\\' . ucfirst($extension) . '\\Widgets\\Settings'))
             {
-                // Make sure this settings extension widget exist.
-                //
-                $widget = 'Platform\\' . ucfirst($data['extension']) . '\\Widgets\\Settings';
-                if( ! class_exists($widget))
-                {
-                    continue;
-                }
+                continue;
+            }
 
+            // Loop through all this extension settings
+            //
+            foreach ($extension_settings as $type => $setting)
+            {
                 // Populate the array.
                 //
-                $settings[ $data['extension'] ][ $data['type'] ][ $data['name'] ] = $data['value'];
+                foreach($setting as $data)
+                {
+                    $settings[ $extension ][ $type ][ $data['name'] ] = $data['value'];
+                }
             }
         }
 
