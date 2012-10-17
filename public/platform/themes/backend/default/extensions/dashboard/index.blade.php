@@ -21,14 +21,14 @@
 @section ('content')
 <section id="dashbaord">
 
-	<header class="row">
-			<div class="span4">
+	<header class="row-fluid">
+			<div class="span12">
 				<h1>{{ Lang::line('dashboard::general.title') }}</h1>
 				<p>{{ Lang::line('dashboard::general.description') }}</p>
 			</div>
-			<nav class="actions span8 pull-right">
-			</nav>
 	</header>
+
+	<hr>
 
 </section>
 @endsection
