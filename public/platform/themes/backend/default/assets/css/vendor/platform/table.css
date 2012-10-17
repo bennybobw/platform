@@ -29,17 +29,14 @@
 	}
 
 	#table .tabs-right {
-		margin-left:0;
-		float:left;
+
 	}
 
 	#table .tabs-right .nav-tabs {
 		margin-left: -1px;
-		float: left;
 	}
 
 	#table .table-wrapper {
-		min-height:400px;
 		padding:10px;
 		border:1px solid #ddd;
 		background:#fff;
@@ -64,7 +61,6 @@
 #table .processing {
 	text-align: center;
 	height:42px;
-	width:30%;
 }
 #table .table-processing {
 	background-image: url('../img/table/loading.gif');
@@ -100,7 +96,6 @@
 }
 
 #table #table-pagination {
-	width:100%;
 }
 
 #table #table-pagination a.active {

@@ -1,4 +1,4 @@
-<form action="{{ URL::to_secure(ADMIN.'/users/permissions/'.$id) }}" id="permissions-form" class="form-horizontal" method="POST" accept-char="UTF-8">
+<form action="{{ URL::to_admin('users/permissions/'.$id) }}" id="permissions-form" class="form-horizontal" method="POST" accept-char="UTF-8">
 	<input type="hidden" name="{{ Session::csrf_token }}" value="{{ Session::token() }}">
 
 
@@ -22,7 +22,7 @@
 	<hr>
 
 	<div class="actions">
-		<a class="btn btn-large" href="{{ URL::to_secure(ADMIN.'/users') }}">{{ Lang::line('button.cancel') }}</a>
+		<a class="btn btn-large" href="{{ URL::to_admin('users') }}">{{ Lang::line('button.cancel') }}</a>
 		<button class="btn btn-large btn-primary" type="submit">{{ Lang::line('button.update') }}</button>
 	</div>
 

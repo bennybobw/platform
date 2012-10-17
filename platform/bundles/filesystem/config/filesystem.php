@@ -4,14 +4,7 @@ return array(
 
 	// Default Filesystem Driver
 	//
-	'default_driver' => 'ftp',
-
-	// Event Name
-	//
-	'event' => array(
-		'fallback' => 'filesystem_event_fallback',
-		'failed'   => 'filesystem_event_failed',
-	),
+	'default_driver' => 'native',
 
 	// Fallback - Native only
 	//
@@ -28,7 +21,7 @@ return array(
 			'user'     => '',
 			'password' => '',
 			'port'     => 21,
-			'timeout'  => 2,
+			'timeout'  => 90,
 		),
 	)
 );

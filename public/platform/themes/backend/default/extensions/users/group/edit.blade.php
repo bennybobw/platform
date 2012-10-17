@@ -5,7 +5,8 @@
 	{{ Lang::line('users::general.groups.update.title') }}
 @endsection
 
-<!-- Queue Styles | e.g Theme::queue_asset('name', 'path_to_css', 'dependency')-->
+<!-- Queue Styles -->
+{{ Theme::queue_asset('users-edit', 'users::css/users.css', 'style') }}
 
 <!-- Styles -->
 @section ('styles')
@@ -20,10 +21,10 @@
 
 <!-- Page Content -->
 @section('content')
-<section id="groups">
+<section id="groups-edit">
 
-	<header class="head row">
-		<div class="span4">
+	<header class="row-fluid">
+		<div class="span12">
 			<h1>{{ Lang::line('users::general.groups.update.title') }}</h1>
 			<p>{{ Lang::line('users::general.groups.update.description') }}</p>
 		</div>

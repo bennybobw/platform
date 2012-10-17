@@ -12,7 +12,7 @@
 @endsection
 
 <!-- Queue Scripts -->
-{{ Theme::queue_asset('validate', 'js/validate.js', 'jquery') }}
+{{ Theme::queue_asset('validate', 'js/vendor/platform/validate.js', 'jquery') }}
 
 <!-- Scripts -->
 @section('scripts')
@@ -41,8 +41,8 @@
 
 <section id="users">
 
-	<header class="head row">
-		<div class="span4">
+	<header class="row-fluid">
+		<div class="span12">
 			<h1>{{ Lang::line('users::general.users.create.title') }}</h1>
 			<p>{{ Lang::line('users::general.users.create.description') }}</p>
 		</div>
@@ -50,7 +50,7 @@
 
 	<hr>
 
-	<div class="row">
+	<div class="row-fluid">
 		<div class="span12">
 			@widget('platform.users::admin.user.form.create')
 		</div>

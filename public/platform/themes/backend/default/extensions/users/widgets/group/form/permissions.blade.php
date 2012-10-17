@@ -1,4 +1,4 @@
-<form action="{{ URL::to_secure(ADMIN.'/users/groups/permissions/'.$id) }}" id="permissions-form" class="form-horizontal" method="POST" accept-char="UTF-8">
+<form action="{{ URL::to_admin('users/groups/permissions/'.$id) }}" id="permissions-form" class="form-horizontal" method="POST" accept-char="UTF-8">
 	<input type="hidden" name="{{ Session::csrf_token }}" value="{{ Session::token() }}">
 
 
@@ -18,8 +18,6 @@
 	@endforeach
 
 	<p class="messages"></p>
-
-	<hr>
 
 	<div class="actions">
 		<a class="btn btn-large" href="{{ URL::to_secure(ADMIN.'/users/groups') }}">{{ Lang::line('button.cancel') }}</a>

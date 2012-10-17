@@ -5,13 +5,15 @@
 	{{ Lang::line('users::general.users.update.title') }}
 @endsection
 
+<!-- Queue Styles -->
+{{ Theme::queue_asset('users-edit', 'users::css/users.css', 'style') }}
 
 <!-- Styles -->
 @section ('styles')
 @endsection
 
 <!-- Queue Scripts -->
-{{ Theme::queue_asset('validate', 'js/validate.js', 'jquery') }}
+{{ Theme::queue_asset('validate', 'js/vendor/platform/validate.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-tab','js/bootstrap/tab.js', 'jquery') }}
 
 <!-- Scripts -->
@@ -40,8 +42,8 @@
 @section('content')
 <section id="users-edit">
 
-	<header class="head row">
-		<div class="span4">
+	<header class="row-fluid">
+		<div class="span12">
 			<h1>{{ Lang::line('users::general.users.update.title') }}</h1>
 			<p>{{ Lang::line('users::general.users.update.description') }}</p>
 		</div>
