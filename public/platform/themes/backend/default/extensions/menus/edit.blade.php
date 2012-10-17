@@ -13,16 +13,16 @@
 @endsection
 
 <!-- Queue Scripts -->
-{{ Theme::queue_asset('jquery-helpers', 'js/jquery/helpers.js', 'jquery') }}
+{{ Theme::queue_asset('jquery-helpers', 'js/vendor/jquery/helpers.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-tab', 'js/bootstrap/tab.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-toggle', 'js/bootstrap/toggle.js', 'jquery') }}
 {{ Theme::queue_asset('bootstrap-button', 'js/bootstrap/button.js', 'jquery') }}
-{{ Theme::queue_asset('jquery-ui', 'js/jquery/ui-1.8.18.min.js', 'jquery') }}
-{{ Theme::queue_asset('jquery-nestedsortable', 'js/jquery/nestedsortable-1.3.5.js', 'jquery') }}
-{{ Theme::queue_asset('tempo', 'js/tempo-1.8.min.js') }}
-{{ Theme::queue_asset('jquery-nestysortable', 'js/jquery/nestysortable-1.0.js', 'jquery') }}
-{{ Theme::queue_asset('menussortable', 'menus::js/menussortable-1.0.js', 'jquery') }}
-{{ Theme::queue_asset('validate', 'js/validate.js', 'jquery') }}
+{{ Theme::queue_asset('jquery-ui', 'js/vendor/jquery/ui-1.8.18.min.js', 'jquery') }}
+{{ Theme::queue_asset('jquery-nestedsortable', 'js/vendor/platform/nestedsortable-1.3.5.js', 'jquery') }}
+{{ Theme::queue_asset('tempo', 'js/vendor/tempojs/tempo-1.8.min.js') }}
+{{ Theme::queue_asset('jquery-nestysortable', 'js/vendor/platform/nestysortable-1.0.js', 'jquery') }}
+{{ Theme::queue_asset('menussortable', 'menus::js/vendor/platform/menussortable-1.0.js', 'jquery') }}
+{{ Theme::queue_asset('validate', 'js/vendor/platform/validate.js', 'jquery') }}
 
 <!-- Scripts -->
 @section('scripts')
@@ -125,12 +125,10 @@
 @endsection
 
 @section('content')
-
 	<section id="menus-edit">
 
-
-		<header class="head row">
-			<div class="span4">
+		<header class="row-fluid">
+			<div class="span12">
 				<h1>{{ Lang::line('menus::general.update.title') }}</h1>
 				<p>{{ Lang::line('menus::general.update.description') }}</p>
 			</div>

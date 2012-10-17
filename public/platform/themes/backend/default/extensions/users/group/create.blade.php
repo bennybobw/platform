@@ -19,7 +19,7 @@
 
 <!-- Page Content -->
 @section('content')
-<section id="users">
+<section id="groups">
 
 	<header class="row-fluid">
 		<div class="span12">

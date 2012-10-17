@@ -20,19 +20,25 @@
 
 <!-- Page Content -->
 @section('content')
-<section id ="menus">
+<section id="menus">
 
 	<header class="row-fluid">
-		<div class="span8">
+		<div class="span4">
 			<h1>{{ Lang::line('menus::general.title') }}</h1>
 			<p>{{ Lang::line('menus::general.description') }}</p>
 		</div>
-		<nav class="actions span4 pull-right">
-			{{ HTML::link_to_secure(ADMIN.'/menus/create', Lang::line('button.create'), array('class' => 'btn btn-large btn-primary')) }}
+		<nav class="tertiary-navigation span8">
+			@widget('platform.menus::menus.nav', 2, 1, 'nav nav-pills pull-right', ADMIN)
 		</nav>
 	</header>
 
-	<hr />
+	<hr>
+
+	<div class="actions clearfix">
+		<div class="pull-right">
+			{{ HTML::link_to_secure(ADMIN.'/menus/create', Lang::line('button.create'), array('class' => 'btn btn-large btn-primary')) }}
+		</div>
+	</div>
 
 	<table class="table table-bordered">
 		<thead>
