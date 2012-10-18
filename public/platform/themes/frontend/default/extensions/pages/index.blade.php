@@ -1,23 +1,23 @@
 @layout('templates.default')
 
-<!-- Title -->
+{{-- Title --}}
 @section('title')
 	@get.settings.site.title
 @endsection
 
-<!-- Queue Styles | e.g Theme::queue_asset('name', 'path_to_css', 'dependency') -->
+{{-- Queue Styles | e.g Theme::queue_asset('name', 'path_to_css', 'dependency') --}}
 
-<!-- Styles -->
+{{-- Styles --}}
 @section ('styles')
 @endsection
 
-<!-- Queue Scripts | e.g. Theme::queue_asset('name', 'path_to_js', 'dependency') -->
+{{-- Queue Scripts | e.g. Theme::queue_asset('name', 'path_to_js', 'dependency') --}}
 
-<!-- Scripts -->
+{{-- Scripts --}}
 @section('scripts')
 @endsection
 
-<!-- Content -->
+{{-- Content --}}
 @section('content')
 <section id="home">
 
